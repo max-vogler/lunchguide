@@ -1,0 +1,20 @@
+{
+  "name": "lunchguide",
+  "version": "1.0.0",
+  "authors": [
+    "Max Vogler <max.vogler@gmail.com>"
+  ],
+  "private": true,
+  "license": "GPLv3",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "Bootflat": "*",
+    "instantclick": "~3.0.1"
+  }
+}

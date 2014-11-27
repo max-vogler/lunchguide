@@ -1,0 +1,33 @@
+  * {
+    color: black !important;
+  }
+
+  table, tr, td {
+    padding: 5px !important;
+    margin: 5px !important;
+    border-spacing: 5px !important;
+    border-collapse: separate !important;
+  }
+
+  table {
+    border: 2px solid #000000 !important;
+  }
+
+  tr {
+    border: none !important;
+  }
+
+  td {
+    border: 1px dotted #999999 !important;
+    vertical-align: top !important;
+  }
+
+  #platocontent span,
+  #platocontent sup,
+  #platocontent h1,
+  #platocontent p,
+  #platocontent div {
+    background: rgba(255, 255, 0, 0.2) !important;
+    display: block !important;
+    margin: 5px 0 !important;
+  }

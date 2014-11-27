@@ -1,0 +1,172 @@
+/* COMMON DEFINITIONS 
+/*=============================================*/
+
+@font-face { 
+    font-family: "Roboto Slab"; 
+    src: url("/font/RobotoSlab-Regular.ttf"); 
+}
+
+@font-face { 
+    font-family: "Shadows Into Light Two"; 
+    src: url("/font/ShadowsIntoLightTwo-Regular.ttf"); 
+}
+
+body, html {
+    min-height: 100%;
+    font-family: "Roboto Slab", Arial, sans-serif;
+}
+
+body {
+    color: black;
+    background: #ffffff none no-repeat fixed center center;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(../img/bg.jpg);
+    background-size: cover;
+    font-size: 16px;
+}
+
+h1, h2, h3 {
+    font-family: 'Shadows Into Light Two', cursive;
+}
+
+a:link, a:visited {
+    color: inherit;
+    text-decoration: underline;
+}
+
+.header, .footer {
+    color: #000000;
+}
+
+.h0 {
+    display: none !important;
+}
+
+
+/* HEADER 
+/*=============================================*/
+
+.header {
+    width: 100%;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 50px;
+    line-height: 1;
+    margin-top: 25px;
+    margin-bottom: 0;
+}
+
+.header h2 {
+    font-size: 25px;
+    margin: 25px 0;
+}
+
+.logo {
+    background: transparent url(../img/logo.png) no-repeat center center;
+    background-size: contain;
+    display: block;
+    width: 85%;
+    height: 100%;
+    position: absolute;
+}
+
+
+/* CONTENT 
+/*=============================================*/
+
+.restaurant, .content {
+    background: rgba(255, 255, 255, 1);
+    margin-bottom: 1px;
+    position: relative;
+    z-index: 1;
+}
+
+.restaurant-name {
+    padding: 12px;
+    margin: 0;
+    font-size: 2.5em;
+}
+
+.meal {
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 12px;
+}
+
+.meal:first-child {
+    border: none;
+}
+
+.meal-details {
+    white-space: nowrap;
+    float: right;
+    margin-left: 16px;
+}
+
+.meal-info {
+    padding-right: 8px;
+}
+
+.meal-info {
+    font-size: 75%;
+}
+
+.no-specials {
+    position: relative;
+    min-height: 300px;
+}
+
+.no-specials.no-specials-1 {
+    min-height: 100px;
+}
+
+.no-specials.no-specials-2 {
+    min-height: 200px;
+}
+
+
+
+
+/* FOOTER 
+/*=============================================*/
+
+.footer {
+    margin: 1em 0;
+}
+
+
+
+
+/* RESPONSIVENESS
+/*=============================================*/
+
+@media (min-width: 768px) {
+    .header .container .row > div.col-logo {
+        position: relative;
+        overflow: visible;
+    }
+
+    .header .container .row > div {
+        min-height: 180px;
+        overflow: hidden;
+        text-align: left;
+    }
+}
+
+@media (min-width: 992px) {
+    .logo {
+        background-size: cover;
+    }
+
+    .header h1, .header h2 {
+        padding-left: 12px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .meal-name {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}

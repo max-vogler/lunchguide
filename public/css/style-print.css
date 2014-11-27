@@ -1,0 +1,115 @@
+/* GENERAL 
+/*=============================================*/
+@font-face { 
+    font-family: "Roboto Condensed"; 
+    src: url("/font/RobotoCondensed-Regular.ttf"); 
+}
+
+@font-face { 
+    font-family: "Shadows Into Light Two"; 
+    src: url("/font/ShadowsIntoLightTwo-Regular.ttf"); 
+}
+
+body, html, .print-container {
+    width: 1000px;
+    font-family: "Roboto Condensed";
+    background: none;
+}
+
+.print-container {
+    color: black;
+    background: #ffffff none no-repeat center center;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.65)), url(../img/bg-print.jpg);
+    background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.65)), url(../img/bg-print.jpg);
+    background-size: cover;
+    font-size: 16px;
+}
+
+h1, h2, h3 {
+    font-family: "Shadows Into Light Two";
+}
+
+.header, .footer {
+    color: #000000;
+}
+
+.header {
+    width: 100%;
+    height: 170px;
+}
+
+.header .title {
+    position: absolute;
+    top: 0;
+    left: 230px;
+    padding: 8px;
+}
+
+.header h1 {
+    font-size: 50px;
+    line-height: 1;
+    margin-top: 25px;
+    margin-bottom: 0;
+}
+
+.header h2 {
+    font-size: 25px;
+    margin: 25px 0;
+}
+
+.logo {
+    width: 150px;
+    height: auto;
+    margin-top: 8px;
+    margin-left: 40px;
+}
+
+.restaurant {
+    margin-bottom: 1px;
+    position: relative;
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.restaurant-name {
+    padding: 8px 8px 8px 16px;
+    margin: 0;
+    font-size: 2.5em;
+    position: absolute;
+    width: 230px;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.meal {
+    width: 770px;
+    margin: 0 0 0 230px;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    font-size: 1.25em;
+    padding: 8px;
+}
+
+.meal-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.meal-details {
+    white-space: nowrap;
+    float: right;
+    margin-left: 16px;
+}
+
+.meal-info{
+    padding-right: 8px;
+}
+
+.meal-info {
+    font-size: 75%;
+}
+
+.well {
+    border-radius: 0;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 0;
+}

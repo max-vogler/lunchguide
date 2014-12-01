@@ -39,6 +39,11 @@ class MenuAutoPostCommand extends BaseCommand {
             $output = 'Invalid date "' . $this->argument('date') . '". YYYY-MM-DD format required.';
         }
 
+        // Carbon::createFromFormat() uses the current time
+        // which makes Eloquent::where('date', \Carbon) fail!
+        // ==> remove time part manually -_-
+        $date->hour(0)->minute(0)->second(0);
+
         if($returnCode == 0) {
             $image = $output;
             $randomMeal = \Meal::orderByRaw("RAND()")
@@ -49,7 +54,7 @@ class MenuAutoPostCommand extends BaseCommand {
             $line = $randomMeal ? 'lunchguide.caption-regular' : 'lunchguide.caption-empty';
             $message = trans($line, [
                 'date' => $date->formatLocalized('%e. %B'), 
-                'meal' => $randomMeal->name
+                'meal' => $randomMeal ? $randomMeal->name : ''
             ]);
 
             list($returnCode, $output) = $this->callCommand('menu:post', ['message' => $message, 'image' => $image]);

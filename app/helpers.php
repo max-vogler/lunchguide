@@ -45,6 +45,14 @@ function obfuscate($text, $hiddenClass = 'h0', $visibleClass = 'v0') {
     }, $realChars));
 }
 
+function safe_ucfirst($str) {
+    if(strlen($str)) {
+        $str = mb_strtoupper(mb_substr($str, 0, 1)) . mb_substr($str, 1);
+    }
+
+    return $str;
+}
+
 Form::macro('csrf', function () {
     return Form::hidden('_token', csrf_token());
 });

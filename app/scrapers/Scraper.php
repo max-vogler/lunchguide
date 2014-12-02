@@ -37,9 +37,9 @@ abstract class Scraper {
         assert($this->restaurant);
 
         // Do some last minute polishing of the meal names
-        // Use mb_convert_case instead of ucfirst, because it does weird things to
+        // Use safe_ucfirst (see helpers.php) instead of ucfirst, because it does weird things to
         // strings starting with special charactes like "„foo bar“"
-        $meal->name = mb_convert_case($this->trim($meal->name), MB_CASE_TITLE, "UTF-8");
+        $meal->name = safe_ucfirst($this->trim($meal->name));
 
         $meal->restaurant()->associate($this->restaurant);
         $meal->save();

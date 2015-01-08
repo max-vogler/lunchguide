@@ -25,6 +25,9 @@ abstract class Scraper {
         // Remove Meals for given dates
         $this->restaurant->meals()->whereIn('date', $this->update->removeMealsForDates)->delete();
 
+        // Reset meal array keys
+        $this->update->meals = array_values($this->update->meals);
+
         // Apply an optional post-filter to the meals
         $this->update->meals = $this->afterScrapeFilter($this->update->meals);
 

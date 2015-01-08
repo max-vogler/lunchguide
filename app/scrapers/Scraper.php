@@ -10,7 +10,10 @@ abstract class Scraper {
 
     public function __construct(\Update $update) {
         $this->restaurant = \Restaurant::where('name', $this->name)->first();
-        assert($this->restaurant);
+        
+        if(!$this->restaurant) {
+            throw new Exception("No restaurant found for {$this->name}");
+        }
 
         $this->update = $update;
     }

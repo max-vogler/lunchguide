@@ -52,8 +52,6 @@ return array(
 	|
 	*/
 
-	'php_locale' => 'de_DE',
-
 	'locale' => 'de',
 
 	/*
@@ -68,6 +66,20 @@ return array(
 	*/
 
 	'fallback_locale' => 'en',
+
+	/*
+	|--------------------------------------------------------------------------
+	| PHP Locale
+	|--------------------------------------------------------------------------
+	|
+	| The PHP locale is used in setlocale() and responsible for date, time and
+	| other number formatting.
+	|
+	| Use a UTF8 locale, or elsewise dates with special characters (e.g. März)
+	| will have encoding problems!
+	*/
+
+	'php_locale' => 'de_DE.utf8',
 
 	/*
 	|--------------------------------------------------------------------------

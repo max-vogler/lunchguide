@@ -52,7 +52,7 @@ class MenuRenderCommand extends Command {
         $phantomjsPath = app_path() . '/phantomjs';
 
         // 2>&1 redirects stderr to stdout and suppresses phantomjs warnings showing up in the console
-        shell_exec("$phantomjsPath/phantomjs $phantomjsPath/RenderMenu.js $url $targetFile 2>&1");
+        shell_exec("phantomjs \"$phantomjsPath/RenderMenu.js\" $url \"$targetFile\" 2>&1");
 
         if(file_exists($targetFile)) {
             $this->info($targetFile);

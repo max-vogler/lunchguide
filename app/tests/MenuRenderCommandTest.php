@@ -4,10 +4,6 @@ use Symfony\Component\Console\Output\BufferedOutput;
 
 class MenuRenderCommandTest extends TestCase {
 
-    public function testPhantomJsExists() {
-        $this->assertFileExists(app_path() . '/phantomjs/phantomjs');
-    }
-
     public function testEmptyRender() {
         $output = new BufferedOutput;
 

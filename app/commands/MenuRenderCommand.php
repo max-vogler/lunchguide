@@ -26,8 +26,6 @@ class MenuRenderCommand extends Command {
      * @return mixed
      */
     public function fire() {
-        $arg = $this->argument('date');
-
         try {
             $date = Carbon::createFromFormat('Y-m-d', $this->argument('date'));
         } catch(Exception $exception) {
@@ -36,7 +34,12 @@ class MenuRenderCommand extends Command {
         }
 
         $date_formatted = url_date($date);
-        $url = action('DailyMenuController@date', $date_formatted).'?print=1';
+
+        $url = $this->argument('file');
+        if(!$url) {
+            $url = action('DailyMenuController@date', $date_formatted).'?print=1';
+        }
+
         $path = public_path() . '/img/menu/' . $date->format('Y/m/');
         $targetFile = $path . $date->format('d') . '.png';
 
@@ -52,13 +55,14 @@ class MenuRenderCommand extends Command {
         $phantomjsPath = app_path() . '/phantomjs';
 
         // 2>&1 redirects stderr to stdout and suppresses phantomjs warnings showing up in the console
-        shell_exec("phantomjs \"$phantomjsPath/RenderMenu.js\" $url \"$targetFile\" 2>&1");
+        $command = "phantomjs \"$phantomjsPath/RenderMenu.js\" $url \"$targetFile\" 2>&1";
+        $output = shell_exec($command);
 
         if(file_exists($targetFile)) {
             $this->info($targetFile);
             return 0;
         } else {
-            $this->error('Error while rendering!');
+            $this->error("Error while rendering.\n$command\n$output\n");
             return 1;
         }
     }
@@ -70,12 +74,21 @@ class MenuRenderCommand extends Command {
      */
     protected function getArguments() {
         $today = \Carbon\Carbon::today()->toDateString();
-        return array([
-            'date', 
-            InputArgument::OPTIONAL, 
-            'Specifies a date for the daily menu. If empty, the menu of today is rendered.', 
-            $today
-        ]);
+        return [
+            [
+                'date',
+                InputArgument::OPTIONAL,
+                'Specifies a date for the daily menu. If empty, the menu of today is rendered.',
+                $today
+            ],
+
+            [
+                'file',
+                InputArgument::OPTIONAL,
+                'Specifies the HTML file or URL to be rendered',
+                ''
+            ]
+        ];
     }
 
     /**
